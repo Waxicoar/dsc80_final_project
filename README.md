@@ -1,2 +1,2 @@
 # Power_Outages_Prediction
-This is a project for dsc80 at UCSD
+<h1>Project Title: Power Outages Prediction</h1>
