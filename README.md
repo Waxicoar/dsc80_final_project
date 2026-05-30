@@ -1,2 +1,2 @@
-# dsc80_final_project
-dsc80_final_project
+# Power_Outages_Prediction
+This is a project for dsc80 at UCSD
