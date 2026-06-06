@@ -150,10 +150,10 @@ We established permutation tests to determine whether the missingness of the `CU
 ## Hypothesis Testing
 To assess whether different outage triggers present structurally unique severity footprints, we investigated the restoration durations between environmental disasters and systemic grid failures.
 
-* **Null Hypothesis ($H_0$):** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is entirely due to random sampling chance.
-* **Alternative Hypothesis ($H_A$):** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting physical barriers to infrastructure restoration.
+* **Null Hypothesis:** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is entirely due to random sampling chance.
+* **Alternative Hypothesis:** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting physical barriers to infrastructure restoration.
 * **Test Statistic:** Difference in Sample Medians ($\text{Median}_{\text{Weather}} - \text{Median}_{\text{Malfunction}}$).
-* **Significance Level ($\alpha$):** 0.05.
+* **Significance Level:** 0.05.
 
 ### Test Results
 Following 1,000 random reshuffling permutations, our simulation yielded a **p-value of < 0.001**. 
