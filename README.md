@@ -88,7 +88,7 @@ To understand regional impacts, we aggregated the data across **climate regions*
 * **Regional Inversion:** Interestingly, the region with the highest absolute number of incidents resolves them relatively quickly.
 * **Infrastructure Crisis:** Conversely, a separate region experiencing 137 outages suffers from a prolonged median duration of 3,120 minutes. In this severely delayed region, the median number of affected customers climbs to 111,196.5, suggesting widespread infrastructure stress.
 
-Next, we aggregated the data by the **underlying cause** of the outage:
+Next, we aggregated the data by the underlying cause of the outage:
 
 <iframe src="assets/agg2.html" width="100%" height="450px" frameborder="0"></iframe>
 
@@ -116,8 +116,8 @@ An evaluation of missing data reveals the following breakdown across our target 
 | `OUTAGE.DURATION` | 0 |
 | `OUTAGE.START` | 0 |
 
-### NMAR (Not Missing At Random) Analysis
-The two columns most likely to be **NMAR (Not Missing At Random)** are `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED`. 
+### NMAR Analysis
+The two columns most likely to be **NMAR** are `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED`. 
 
 The data originates from the Department of Energy's OE-417 Schedule 1 emergency forms, which utilities are legally obligated to file during major incidents. During catastrophic grid failures, conditions are often too chaotic to record accurate telemetry. Because the data values are extreme, they are left blank simply because they are unmeasurable at that time.
 
@@ -127,8 +127,8 @@ Furthermore, utility companies face strategic under-reporting pressures. Since a
 We established permutation tests to determine whether the missingness of the `CUSTOMERS.AFFECTED` column structurally depends on other features.
 
 #### Test 1: Dependency on `CLIMATE.CATEGORY` (Dependent)
-* **Null Hypothesis ($H_0$):** The missingness of customers affected is independent of the macro climate category.
-* **Alternative Hypothesis ($H_A$):** The missingness of customers affected depends on the macro climate category.
+* **Null Hypothesis:** The missingness of customers affected is independent of the macro climate category.
+* **Alternative Hypothesis:** The missingness of customers affected depends on the macro climate category.
 * **Test Statistic:** Total Variation Distance (TVD) between the distribution of climate categories when customers affected is missing versus when it is present.
 * **Observed TVD:** 0.142
 * **p-value:** `< 0.01`
@@ -137,8 +137,8 @@ We established permutation tests to determine whether the missingness of the `CU
 <iframe src="assets/fig7.html" width="100%" height="400px" frameborder="0"></iframe>
 
 #### Test 2: Dependency on `YEAR` (Independent)
-* **Null Hypothesis ($H_0$):** The missingness of customers affected is independent of the year the outage took place.
-* **Alternative Hypothesis ($H_A$):** The missingness of customers affected depends on the year the outage took place.
+* **Null Hypothesis:** The missingness of customers affected is independent of the year the outage took place.
+* **Alternative Hypothesis:** The missingness of customers affected depends on the year the outage took place.
 * **Test Statistic:** Absolute difference in mean year between the missing and non-missing groups.
 * **p-value:** `0.54`
 * **Conclusion:** **Fail to Reject the Null Hypothesis**. The likelihood of a customer count being missing shows no statistically verifiable link to the calendar year of the incident.
@@ -150,10 +150,10 @@ We established permutation tests to determine whether the missingness of the `CU
 ## Hypothesis Testing
 To assess whether different outage triggers present structurally unique severity footprints, we investigated the restoration durations between environmental disasters and systemic grid failures.
 
-* **Null Hypothesis ($H_0$):** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is entirely due to random sampling chance.
-* **Alternative Hypothesis ($H_A$):** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting physical barriers to infrastructure restoration.
+* **Null Hypothesis:** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is entirely due to random sampling chance.
+* **Alternative Hypothesis:** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting physical barriers to infrastructure restoration.
 * **Test Statistic:** Difference in Sample Medians ($\text{Median}_{\text{Weather}} - \text{Median}_{\text{Malfunction}}$).
-* **Significance Level ($\alpha$):** 0.05.
+* **Significance Level:** 0.05.
 
 ### Test Results
 Following 1,000 random reshuffling permutations, our simulation yielded a **p-value of < 0.001**. 
