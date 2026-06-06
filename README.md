@@ -116,6 +116,8 @@ To assess whether the underlying triggers of outages have systematically differe
 ### Test Results
 Following 1,000 random reshuffling permutations, our simulation yielded a **p-value of < 0.001**. 
 
+  <iframe src="assets/fig9.html" width="100%" height="400px" frameborder="0"></iframe>
+
 ### Conclusion
 Because our p-value is far below our significance threshold ($\alpha = 0.05$), we reject the null hypothesis. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly delayed restoration times compared to internal equipment malfunctions. However, since this is an observational study rather than a randomized controlled trial, this result does not absolutely prove direct causation.
 
