@@ -162,7 +162,7 @@ Following 1,000 random reshuffling permutations, our simulation yielded a **p-va
 
 ### Conclusion
 Because our p-value is far below our significance threshold, we **reject the null hypothesis**. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly longer restoration times compared to internal equipment malfunctions. 
-However, as an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
+However, as an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.
 
 ---
 
