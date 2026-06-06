@@ -1,4 +1,23 @@
 # Introduction
+This is a project overview for investigation and analysis of power outages in the United States. The power outages dataset with data from the US Department of Energy and compiled by Mukherjee et al. contains information on the circumstances and related information surrounding power outages that occur within the United States. Given the substantial economic losses and societal disruptions caused by large-scale grid failures, identifying the specific times and locations of these events is critical for optimizing resource allocation and hardening infrastructure. Consequently, we have decided to answer the question of when and where are major power outages most likely to occur. Major power outages are power outages that exceed 50000 customers affected or 300 MW power loss, as defined by the Department of Energy. By isolating the major events, we aim to discover seasonal trends and regional vulnerabilities that can inform future grid-strengthening initiatives and emergency response planning.
+
+Original dataset can be found at https://engineering.purdue.edu/LASCI/research-data/outages with 1541 rows and 57 columns in total. 57 columns generally indicates 57 features of power outages, while only 13 columns are relevant to our focus of studies:
+
+| Column | Description |
+| :--- | :--- |
+| `'YEAR'` | Year an outage occurred |
+| `'MONTH'` | Month an outage occurred |
+| `'OUTAGE.START.DATE'` | Exact day/month/year an outage occured |
+| `'OUTAGE.START.TIME'` | Exact time an outage occured during the day |
+| `'U.S._STATE'` | Specific U.S. state where an outage occured |
+| `'CLIMATE.REGION'` | U.S. climate region where the outage occurred, specified by NCEI |
+| `'CAUSE.CATEGORY'` | Primary reason or category of the event that triggered the outage |
+| `'CLIMATE.CATEGORY'` | Classification of the generalized climate climate conditions during the outage |
+| `'DEMAND.LOSS.MW'` | Amount of power demand lost during the outage in MW |
+| `'ANOMALY.LEVEL'` | The Oceanic Niño Index numeric value at the time of the outage |
+| `'CUSTOMERS.AFFECTED'` | Total number of utility customers that lost power during the outage |
+| `'POPULATION'` | Total population of the affected state during the year of the outage |
+| `'OUTAGE.DURATION'` | Total length of time the power outage lasted |
 
 # Data Cleaning and Exploratory Data Analysis
 Before we dig into the dataset, we need to clean it first.
