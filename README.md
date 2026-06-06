@@ -161,7 +161,7 @@ Following 1,000 random reshuffling permutations, our simulation yielded a **p-va
 <iframe src="assets/fig9.html" width="100%" height="400px" frameborder="0"></iframe>
 
 ### Conclusion
-Because our p-value is far below our significance threshold ($\alpha = 0.05$), we **reject the null hypothesis**. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly longer restoration times compared to internal equipment malfunctions. 
+Because our p-value is far below our significance threshold, we **reject the null hypothesis**. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly longer restoration times compared to internal equipment malfunctions. 
 
 > *Note: Since this is an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
 
@@ -233,11 +233,11 @@ To confirm that our final model performs equitably across different demographic 
 * **Test Statistic:** $RMSE_{\text{Low Pop}} - RMSE_{\text{High Pop}}$
 
 ### Hypotheses
-* **Null Hypothesis ($H_0$):** The model is fair. The RMSE for low population states and high population states is roughly equal, and any observed difference is purely due to random split chance.
-* **Alternative Hypothesis ($H_A$):** The model is unfair. The RMSE for low population states is significantly different from the RMSE for high population states, indicating a systemic demographic bias.
-* **Significance Level ($\alpha$):** 0.05.
+* **Null Hypothesis:** The model is fair. The RMSE for low population states and high population states is roughly equal, and any observed difference is purely due to random split chance.
+* **Alternative Hypothesis:** The model is unfair. The RMSE for low population states is significantly different from the RMSE for high population states, indicating a systemic demographic bias.
+* **Significance Level:** 0.05.
 
 ### Results & Evaluation
 After running a permutation test with 1,000 demographic label swaps, we calculated a final **p-value of 0.38**. 
 
-Because $0.38 > 0.05$, we fail to reject the null hypothesis. We conclude that there is no statistically significant evidence of a fairness disparity in our model's accuracy between low-population and high-population areas; the model remains structurally equitable across both groups.
+Because 0.38 > 0.05, we fail to reject the null hypothesis. We conclude that there is no statistically significant evidence of a fairness disparity in our model's accuracy between low-population and high-population areas; the model remains structurally equitable across both groups.
