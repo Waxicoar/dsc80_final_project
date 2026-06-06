@@ -124,8 +124,13 @@ Following 1,000 random reshuffling permutations, our simulation yielded a **p-va
 Because our p-value is far below our significance threshold ($\alpha = 0.05$), we reject the null hypothesis. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly delayed restoration times compared to internal equipment malfunctions. However, since this is an observational study rather than a randomized controlled trial, this result does not absolutely prove direct causation.
 
 # Framing a Prediction Problem
+Our objective is framed as a Regression task, specifically predicting the continuous variable OUTAGE.DURATION in minutes. We chose **Root Mean Squared Error (RMSE)** as our primary evaluation metric. It is highly appropriate for this project because RMSE heavily penalizes large missed predictions by squaring residuals. For states level outages underestiamting the outage duration can cause catastrophic consequences; usnig other metrics like MAE treats this error linearly, whereas RMSE appropriately highlights severe modeling failures. 
+To ensure the model operates appropriately under real life context, we only train using features known *at or before the exact start of the outage*. Features like `DEMAND.LOSS.MW` and `CUSTOMERS.AFFECTED` were explicitly barred from training, as those figures are calculated and finalized only *after* power is completely restored to the grid.
 
 # Baseline Model
+The linear regression baseline model is designed to predict the severity of power outages (OUTAGE.DURATION). The model is a simple regression fit with two features: CAUSE.CATEGORY and ANOMALY.LEVEL. CAUSE.CATEGORY is categorical and is transformed using One-Hot Encoding (ColumnTransformer) to convert string labels into binary vectors. ANOMALY.LEVEL (represents climatic strength) is used as is as it's numerical. On a 20% test split, the result is RMSE of ~7189.3 min.
+
+The model's performance is not as expected, as using only two features leads to underfitting and assuming a simple linear relationship introduces bias, where highly non-linear underlying relationships actually exist.
 
 # Final Model
 
