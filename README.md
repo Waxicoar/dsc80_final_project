@@ -134,5 +134,41 @@ The linear regression baseline model is designed to predict the severity of powe
 The model's performance is not as expected, as using only two features leads to underfitting and assuming a simple linear relationship introduces bias, where highly non-linear underlying relationships actually exist.
 
 # Final Model
+FINAL MODEL:
+
+To capture the complex nature of grid failures, we engineered and added three features to our final model:
+
+- POPULATION (Quantitative): Outages in densely populated areas affect more infrastructure and complex networks, which can either delay restoration due to scale or accelerate it due to prioritization. We applied a QuantileTransformer because population data is heavily right-skewed. This unskews the distribution and prevents extreme outliers from dominating the model.
+
+- CLIMATE.REGION (Nominal): Geographic and regional weather conditions determine how resilient the region is to power outage (a region unused to severe weather might react slower to said condition).
+
+- START_HOUR (Quantitative): The time of day an outage begins directly impacts restoration speeds, as routing repair crews during peak traffic hours or late at night takes significantly longer than during normal working hours. This was scaled using StandardScaler to normalize its variance.
+
+These features are important because an outage's duration is fundamentally determined by where it happens (Region), who it affects (Population), and when it starts (Start Hour).
+
+We selected a Random Forest Regressor as our final modeling algorithm. Unlike Linear Regression, Random Forests can capture non-linear relationships and complex feature interactions.
+
+To select the best model, we used 5-fold CV via GridSearchCV to test combinations of tree depth, splitting thresholds, and estimator counts. The method optimized for the lowest negative RMSE on the training subsets. The optimal hyperparameters this found was: max_depth=3, min_samples_split=2, and n_estimators=150.
+
+Our Final Model achieved an improvement, reducing the prediction error by approximately 255.34 minutes (about 4.25 hours).
+While a 255 minute reduction is a step in the right direction, the final RMSE remains high (~4.8 days). The fact that GridSearchCV selected a highly restricted max_depth of 3 reveals the important fact that power outage durations contain extreme and unpredictable outliers that cannot be easily forecasted by broad variables.
+
+But the Final Model is still a distinct improvement over the Baseline. By transitioning to a Random Forest and utilizing cross-validation, we integrated non-linear interactions and engineered noisy features into a more stable model that generalizes better to unseen data without overfitting.
 
 # Fairness Analysis
+To confirm that our final model performs equitably across different demographic sizes, we evaluated its consistency between states with high vs. low populations.
+
+* **Group X (Low Population States):** Outages occurring in states with a population *below* the national median.
+* **Group Y (High Population States):** Outages occurring in states with a population *above* the national median.
+* **Evaluation Metric:** Root Mean Squared Error (RMSE).
+* **Test Statistic:** $RMSE_{\text{Low Pop}} - RMSE_{\text{High Pop}}$
+
+### Hypotheses
+* **Null Hypothesis ($H_0$):** The model is fair. The RMSE for low population states and high population states is roughly equal, and any observed difference is due to random split chance.
+* **Alternative Hypothesis ($H_A$):** The model is unfair. The RMSE for low population states is significantly different from the RMSE for high population states.
+* **Significance Level ($\alpha$):** 0.05.
+
+### Results & Evaluation
+After running a permutation test with 1,000 demographic label swaps, we calculated a final **p-value of 0.38**. 
+
+Because $0.38 > 0.05$, we fail to reject the null hypothesis. We conclude that there is no statistically significant evidence of a fairness disparity in our model's accuracy between low-population and high-population areas; the model remains structurally equitable across both groups.
