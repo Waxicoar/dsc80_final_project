@@ -229,7 +229,7 @@ To confirm that our final model performs equitably across different demographic 
 * **Group X (Low Population States):** Outages occurring in states with a population *below* the national median population.
 * **Group Y (High Population States):** Outages occurring in states with a population *above* the national median population.
 * **Evaluation Metric:** Root Mean Squared Error (RMSE).
-* **Test Statistic:** $RMSE_{\text{Low Pop}} - RMSE_{\text{High Pop}}$
+* **Test Statistic:** RMSE Difference
 
 ### Hypotheses
 * **Null Hypothesis:** The model is fair. The RMSE for low population states and high population states is roughly equal, and any observed difference is purely due to random split chance.
