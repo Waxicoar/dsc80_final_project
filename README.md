@@ -19,7 +19,7 @@ Original dataset can be found at https://engineering.purdue.edu/LASCI/research-d
 | `'POPULATION'` | Total population of the affected state during the year of the outage |
 | `'OUTAGE.DURATION'` | Total length of time the power outage lasted |
 
-# Data Cleaning and Exploratory Data Analysis
+# Data Cleaning 
 Before we dig into the dataset, we need to clean it first.
 
 The data cleaning begins by loading the power outage dataset from an Excel file and removing intial rows and columns that are unnecessary(like varaible names and units). It then filters the dataset to retain only a specific subset of 13 key features relevant to interests of our studies, namely: ["YEAR", "MONTH", "OUTAGE.START.DATE", "OUTAGE.START.TIME", "U.S._STATE", "CLIMATE.REGION", "CAUSE.CATEGORY", "CLIMATE.CATEGORY", "DEMAND.LOSS.MW", "ANOMALY.LEVEL", "CUSTOMERS.AFFECTED", "POPULATION", "OUTAGE.DURATION"]. 
@@ -33,6 +33,14 @@ The first few rows of the dataset after cleaning looks like this
   frameborder="0"
 ></iframe>
 
+# Exploratory Data Analysis
+For our anlaysis, we choose to perform a nivariate analysis on single variables.
+
+We are interested in how power outages varied over states:
+<iframe src="assets/fig1.html" width="100%" height="450px" frameborder="0"></iframe>
+
+We are also interested in how has powers outages been changing over years:
+<iframe src="assets/fig2.html" width="100%" height="450px" frameborder="0"></iframe>
 
 
 # Assessment of Missingness
