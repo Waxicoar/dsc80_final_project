@@ -1,3 +1,5 @@
+# Power_Outages_Prediction
+
 # Introduction
 This is a project overview for investigation and analysis of power outages in the United States. The power outages dataset with data from the US Department of Energy and compiled by Mukherjee et al. contains information on the circumstances and related information surrounding power outages that occur within the United States. Given the substantial economic losses and societal disruptions caused by large-scale grid failures, identifying the specific times and locations of these events is critical for optimizing resource allocation and hardening infrastructure. Consequently, we have decided to answer the question of when and where are major power outages most likely to occur. Major power outages are power outages that exceed 50000 customers affected or 300 MW power loss, as defined by the Department of Energy. By isolating the major events, we aim to discover seasonal trends and regional vulnerabilities that can inform future grid-strengthening initiatives and emergency response planning.
 
