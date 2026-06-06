@@ -65,20 +65,7 @@ The graph to some extends tells severe weather conditions drive the vast majorit
 
 
 # Assessment of Missingness
-| Column Name | Missing Values |
-| :--- | ---: |
-| YEAR | 0 |
-| MONTH | 0 |
-| U.S._STATE | 0 |
-| CLIMATE.REGION | 5 |
-| CAUSE.CATEGORY | 0 |
-| CLIMATE.CATEGORY | 0 |
-| DEMAND.LOSS.MW | 672 |
-| ANOMALY.LEVEL | 0 |
-| CUSTOMERS.AFFECTED | 420 |
-| POPULATION | 0 |
-| OUTAGE.DURATION | 0 |
-| OUTAGE.START | 0 |
+
 
 The two columns most likely to be NMAR are DEMAND.LOSS.MW and CUSTOMERS.AFFECTED. The data is from OE-417 form Schedule 1 (DOE emergency form) from the Department of Energy, which electric utilities are legally required to file for major incidents. During extreme chaos, where the values are likely extremely high for these two columns, they may be left blank because the amount is uncountable.
 
