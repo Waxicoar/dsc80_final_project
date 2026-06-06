@@ -1,4 +1,4 @@
-# Trackinf Major US Power Outages
+# Tracking Major US Power Outages
 by Yuxuan Zhu, Andy Li
 
 ## Introduction
