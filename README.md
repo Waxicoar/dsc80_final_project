@@ -1,4 +1,4 @@
-# Power_Outages_Prediction
+# Trackinf Major US Power Outages
 by Yuxuan Zhu, Andy Li
 
 ## Introduction
@@ -163,7 +163,7 @@ Following 1,000 random reshuffling permutations, our simulation yielded a **p-va
 ### Conclusion
 Because our p-value is far below our significance threshold ($\alpha = 0.05$), we **reject the null hypothesis**. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly longer restoration times compared to internal equipment malfunctions. 
 
-> *Note: Since this is an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
+It's worth metioning that since this is an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
 
 ---
 
