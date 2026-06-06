@@ -162,8 +162,7 @@ Following 1,000 random reshuffling permutations, our simulation yielded a **p-va
 
 ### Conclusion
 Because our p-value is far below our significance threshold, we **reject the null hypothesis**. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly longer restoration times compared to internal equipment malfunctions. 
-
-> *Note: Since this is an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
+However, as an observational study rather than a randomized controlled trial, this result demonstrates a robust association but does not mathematically prove direct causation.*
 
 ---
 
@@ -241,3 +240,5 @@ To confirm that our final model performs equitably across different demographic 
 After running a permutation test with 1,000 demographic label swaps, we calculated a final **p-value of 0.38**. 
 
 Because 0.38 > 0.05, we fail to reject the null hypothesis. We conclude that there is no statistically significant evidence of a fairness disparity in our model's accuracy between low-population and high-population areas; the model remains structurally equitable across both groups.
+
+<iframe src="assets/fig10.html" width="100%" height="400px" frameborder="0"></iframe>
