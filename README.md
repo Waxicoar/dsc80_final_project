@@ -69,8 +69,55 @@ The graph to some extends tells severe weather conditions drive the vast majorit
 
 
 # Assessment of Missingness
+|YEAR	|0|
+|MONTH	|0|
+|U.S._STATE	|0|
+|CLIMATE.REGION	|5|
+|CAUSE.CATEGORY	|0|
+|CLIMATE.CATEGORY	|0|
+|DEMAND.LOSS.MW	|672|
+|ANOMALY.LEVEL	|0|
+|CUSTOMERS.AFFECTED	|420|
+|POPULATION	|0|
+|OUTAGE.DURATION	|0|
+|OUTAGE.START	|0|
+
+The two columns most likely to be NMAR are DEMAND.LOSS.MW and CUSTOMERS.AFFECTED. The data is from OE-417 form Schedule 1 (DOE emergency form) from the Department of Energy, which electric utilities are legally required to file for major incidents. During extreme chaos, where the values are likely extremely high for these two columns, they may be left blank because the amount is uncountable.
+
+Additionally, under-reporting may happen for these two columns. Because the definition of "Major Outage" is defined as 50,000+ customers affected or continuous loss of 300MW for over 30 minutes, which are the two columns in question, utility companies may leave these blank to avoid strict regulation regarding borderline values.
+
+For Missingness Dependency, we set up permutation tests to determine whether the missingness of the **`CUSTOMERS.AFFECTED`** column depends on other features.
+
+1.  **Dependency on `CLIMATE.CATEGORY` (Dependent)**
+    * **Null Hypothesis ($H_0$):** The missingness of customers affected is independent of the macro climate category.
+    * **Alternative Hypothesis ($H_A$):** The missingness of customers affected depends on the macro climate category.
+    * **Test Statistic:** Total Variation Distance (TVD) between the distribution of climate categories when customers affected is missing vs. when it is present.
+    * **Observed TVD:** 0.142
+    * **p-value:** `< 0.01`
+    * **Conclusion:** We reject the null hypothesis. The missingness of customer records exhibits a statistically significant dependency on climate conditions.
+  <iframe src="assets/fig7.html" width="100%" height="400px" frameborder="0"></iframe>
+
+2.  **Dependency on `YEAR` (Independent)**
+    * **Null Hypothesis ($H_0$):** The missingness of customers affected is independent of the year the outage took place.
+    * **Alternative Hypothesis ($H_A$):** The missingness of customers affected depends on the year the outage took place.
+    * **Test Statistic:** Absolute difference in mean year between the missing and non-missing groups.
+    * **p-value:** `0.54`
+    * **Conclusion:** We fail to reject the null hypothesis. The likelihood of a customer count being missing shows no statistically verifiable link to the calendar year of the incident.
+  <iframe src="assets/fig8.html" width="100%" height="400px" frameborder="0"></iframe>
 
 # Hypothesis Testing
+To assess whether the underlying triggers of outages have systematically different severity footprints, we investigated the duration patterns between environmental disasters and systemic grid failures.
+
+* **Null Hypothesis ($H_0$):** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is due to random sampling chance.
+* **Alternative Hypothesis ($H_A$):** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting the added physical barriers to restoration.
+* **Test Statistic:** Difference in Sample Medians ($\text{Median}_{\text{Weather}} - \text{Median}_{\text{Malfunction}}$).
+* **Significance Level ($\alpha$):** 0.05.
+
+### Test Results
+Following 1,000 random reshuffling permutations, our simulation yielded a **p-value of < 0.001**. 
+
+### Conclusion
+Because our p-value is far below our significance threshold ($\alpha = 0.05$), we reject the null hypothesis. The empirical data strongly supports the alternative hypothesis that weather-related outages face significantly delayed restoration times compared to internal equipment malfunctions. However, since this is an observational study rather than a randomized controlled trial, this result does not absolutely prove direct causation.
 
 # Framing a Prediction Problem
 
