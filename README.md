@@ -34,7 +34,7 @@ The first few rows of the dataset after cleaning looks like this
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+>
 
 # Exploratory Data Analysis
 For our anlaysis, we choose to perform a nivariate analysis on single variables.
