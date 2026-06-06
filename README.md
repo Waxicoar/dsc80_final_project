@@ -152,7 +152,7 @@ To assess whether different outage triggers present structurally unique severity
 
 * **Null Hypothesis:** The distribution of outage durations for severe weather events and system malfunctions is identical. Any observed difference in medians is entirely due to random sampling chance.
 * **Alternative Hypothesis:** The distribution of outage durations for severe weather events has a higher median than that of system malfunctions, reflecting physical barriers to infrastructure restoration.
-* **Test Statistic:** Difference in Sample Medians ($\text{Median}_{\text{Weather}} - \text{Median}_{\text{Malfunction}}$).
+* **Test Statistic:** Difference in Sample Medians.
 * **Significance Level:** 0.05.
 
 ### Test Results
